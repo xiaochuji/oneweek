@@ -40,5 +40,21 @@ gulp.task("watch",function(){
     gulp.watch("./src/scss/*.scss",gulp.series("sass","concat"))
 })
 
-gulp.task("all",gulp.series("sass","concat","server","watch"))
+gulp.task("all",gulp.series("sass","concat","server","minjs","watch"))
 //生成dist文件夹
+gulp.task("html",function(){
+    return gulp.src("./src/index.html")
+           .pipe(gulp.dest("./dist/"))
+})
+
+gulp.task("bulid",function(){
+    return gulp.src("./src/css/*.css")
+           .pipe(gulp.dest("./dist/css"))
+})
+
+gulp.task("bulidjs",function(){
+    return gulp.src("./src/libs/*.js")
+           .pipe(gulp.dest("./dist/js"))
+})
+
+gulp.task("up",gulp.series("html","bulid","bulidjs"))
