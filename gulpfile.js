@@ -20,14 +20,25 @@ gulp.task("concat",function(){
 })
 
 //起服务
-
+gulp.task("server",function(){
+    return gulp.src("./src")
+           .pipe(server({
+               open:true,
+               livereload:true
+           }))
+})
 
 //压缩js
+gulp.task("minjs",function(){
+    return gulp.src("./src/js/index.js")
+           .pipe(ug())
+           .pipe(gulp.dest("./src/libs"))
+})
 
 //监听
 gulp.task("watch",function(){
     gulp.watch("./src/scss/*.scss",gulp.series("sass","concat"))
 })
 
-gulp.task("all",gulp.series("sass","concat","watch"))
+gulp.task("all",gulp.series("sass","concat","server","watch"))
 //生成dist文件夹
