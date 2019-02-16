@@ -6,4 +6,22 @@
     flex-direction: column;
     padding: 30%;
     box-sizing: border-box;
+    border: pxTorem(1px) solid #ccc;
+    div{
+        width: 100%;
+        height: pxTorem(100px);
+        background: red;
+        margin-bottom: pxTorem(30px);
+        text-align: center;
+        line-height: pxTorem(100px);
+        font-size: pxTorem(20px);
+    }
+    button{
+        width: 100%;
+        height: pxTorem(35px);
+        font-size: pxTorem(8px);
+    }
+    .btn{
+        margin-bottom: pxTorem(5px);
+    }
 }
